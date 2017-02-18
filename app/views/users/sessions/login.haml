@@ -1,0 +1,14 @@
+.row
+  .col-md-4
+  .col-md-4
+    %img{src:'/img/ab5.jpg'} 
+    %form.form-signin{:action => "/sessions/login", :method => "post"}
+      %h2.form-signin-heading
+        Sala de Extraccion
+      %input#username.form-control(type="email" name="username" value="#{params[:username]}" placeholder="Email" autofocus="true" required="true")
+      %br
+      %input#password.form-control(type="password" name="password" placeholder="Contraseña" required="true")
+      %br
+      %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"}
+        Ingresar
+  .col-md-4

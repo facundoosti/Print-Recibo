@@ -1,0 +1,17 @@
+.row
+  .form-group
+    %label.col-md-2.control-label{for: "file"} Archivo
+    .col-md-9
+      %input.form-control.filestyle#file{type: "file", name: "file", 'data-buttonText': "Abrir Archivo", 'data-iconName':"glyphicon glyphicon-inbox", required: 'required'}
+  .form-group
+    %label.col-md-2.control-label{for: "mes"} Periodo
+    .col-md-9
+      %input.form-control#mes{type: "month", name: "month", required: 'required'}
+  .form-group
+    %label.col-md-2.control-label{for: "expensas"}
+      Expensas
+    .col-md-10
+      .checkbox
+        %input{type: "hidden", name: "expensa", value: :false}  
+        %input{type: "checkbox", name: "expensa", value: :true}
+        (Coloca check para imprimir expensas extraordinarias)

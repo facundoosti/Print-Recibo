@@ -1,0 +1,75 @@
+.navbar.navbar-inverse.navbar-static-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{ 'data-target' => '.navbar-collapse', 'data-toggle' => 'collapse', 'type' => 'button'}
+      %a.navbar-brand{ :href => '/'} Sala de Extraccion
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{href: "/producers"}
+            %i.fa.fa-user
+            Productor
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => ""}
+            %i.fa.fa-dropbox
+            Ingresos
+            %b.caret
+          %ul.dropdown-menu{:role=>"menu", "aria-labelledby"=>"dropdownMenu"}
+            %li
+              = link_to "Alzas", "/income_drawers",with_seasson: sala.active_seasson, :tabindex=>"-1"
+            %li
+              = link_to "Envases", "/income_barrels", :tabindex=>"-1"
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => ""}
+            %i.fa.fa-bitbucket
+            Tambores
+            %b.caret
+          %ul.dropdown-menu{:role=>"menu", "aria-labelledby"=>"dropdownMenu"}
+            %li
+              = link_to "Listar Tambores", "/barrels", :tabindex=>"-1"
+            %li
+              = link_to "Asignar Tambores", "/allocation_barrels",with_seasson: sala.active_seasson, :tabindex=>"-1"
+            %li
+              = link_to "Venta Tambores", "/sale_barrels", :tabindex=>"-1"
+            %li
+              = link_to "Llenar Tambores", "/filling_barrels", :tabindex=>"-1"     
+            %li
+              = link_to "Depositar Tambores", "/deposit_barrels", :tabindex=>"-1"
+            %li
+              = link_to "Egresar Tambores", "/egress_barrels", :tabindex=>"-1"
+            %li
+              = link_to "Lotes", "/lots", :tabindex=>"-1"     
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => ""}
+            %i.fa.fa-bar-chart 
+            Estadisticas
+            %b.caret
+          %ul.dropdown-menu{:role=>"menu", "aria-labelledby"=>"dropdownMenu"}
+            %li
+              = link_to "Sala", "/sala_statistics", :tabindex=>"-1"
+            %li
+              = link_to "Productor", "/producers_statistics", :tabindex=>"-1"
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => ""}
+            %i.fa.fa-industry 
+            Sala
+            %b.caret
+          %ul.dropdown-menu{:role=>"menu", "aria-labelledby"=>"dropdownMenu"}
+            /
+              %li
+                = link_to "Floracion", "/flowerings", :tabindex=>"-1"
+            %li
+              = link_to "Saldos", "/saldos", :tabindex=>"-1"
+            %li.divider{role:"separator"}
+            %li
+              = link_to "Configuracion", "/sala", :tabindex=>"-1"
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a Bienvenido <b>#{current_user.name}</b>
+        %li
+          %a{href: "/profile"}
+            %i.glyphicon.glyphicon-user
+        %li
+          %a{href: "/sessions/logout"}
+            Salir
+            %i.glyphicon.glyphicon-log-out

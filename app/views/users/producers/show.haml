@@ -1,0 +1,110 @@
+.row
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    %h4
+      User
+    .row
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12
+        %a{:class => "btn btn-mini btn-primary pull-right", :href => "/users"}
+          Volver
+        %br
+        %hr
+    .row
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12
+        .row
+          .col-md-6.col-lg-6
+            .form-group
+              %label.col-sm-4.control-label
+                Suspended
+              .col-sm-8
+                = check_grid(@user.suspended)
+          .col-md-6.col-lg-6
+            .form-group
+              %label.col-sm-4.control-label
+                Login Count
+              .col-sm-8
+                = @user.login_count
+        .row
+          .col-md-6.col-lg-6
+            .form-group
+              %label.col-sm-4.control-label
+                Name
+              .col-sm-8
+                = @user.name
+          .col-md-6.col-lg-6
+            .form-group
+              %label.col-sm-4.control-label
+                Email
+              .col-sm-8
+                = @user.email
+        .row
+          .col-md-6.col-lg-6
+            .form-group
+              %label.col-sm-4.control-label
+                Created At
+              .col-sm-8
+                = @user.created_at.strftime("%d/%m/%Y")
+          .col-md-6.col-lg-6
+            .form-group
+              %label.col-sm-4.control-label
+                Updated At
+              .col-sm-8
+                = @user.updated_at.strftime("%d/%m/%Y")
+        .row
+          .col-md-6.col-lg-6
+            .form-group
+              %label.col-sm-4.control-label
+                Twitter
+              .col-sm-8
+                = @user.twitter
+      %hr
+        .row
+          .col-md-12.col-lg-12
+            - @user.authentications.each do |auth|
+
+              .panel.panel-default
+                .panel-heading
+                  .row
+                    .col-md-12.col-lg-12.h4
+                      Authentications
+                .panel-body
+                  .row
+                    .col-md-6.col-lg-6
+                      .form-group
+                        %label.col-sm-4.control-label
+                          UID
+                        .col-sm-8
+                          = auth.uid
+                    .col-md-6.col-lg-6
+                      .form-group
+                        %label.col-sm-4.control-label
+                          Provider
+                        .col-sm-8
+                          = auth.provider
+                  .row
+                    .col-md-6.col-lg-6
+                      .form-group
+                        %label.col-sm-4.control-label
+                          Lang
+                        .col-sm-8
+                          = auth.lang
+                    .col-md-6.col-lg-6
+                      .form-group
+                        %label.col-sm-4.control-label
+                          Location
+                        .col-sm-8
+                          = auth.location
+                  .row
+                    .col-md-6.col-lg-6
+                      .form-group
+                        %label.col-sm-4.control-label
+                          Time Zone
+                        .col-sm-8
+                          = auth.time_zone
+                    .col-md-6.col-lg-6
+                      .form-group
+                        %label.col-sm-4.control-label
+                          Name
+                        .col-sm-8
+                          = auth.name
+
+

@@ -1,0 +1,11 @@
+%h4
+  Editar Productor
+  %a{:class => "btn btn-mini btn-primary pull-right", :href => "/producers"}
+    Atras
+%hr
+
+%form.form-horizontal{:action => "/producers/#{@producer.id}", :method => :post, :name => "producer", :id => "producer", :enctype => "multipart/form-data"}
+  %input{:name=>"_method", :type=>"hidden", :value=>"put"}
+  = partial :'producers/form'
+  %button.btn.btn-primary{:type => "submit"}  Guardar
+

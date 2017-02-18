@@ -1,0 +1,21 @@
+.row
+	.col-md-6
+		%h2 Imprimir Recibos
+		%hr
+	.col-md-5.pull-right
+		%h3 Formato de Archivo (xlsx)
+		%hr
+.col-md-6
+	%form.form-horizontal{action: "/print-recibos", method: :post, enctype: "multipart/form-data"}
+		= partial :'form'
+		%button.btn.btn-primary.pull-right{type: "submit"} Imprimir Recibos
+
+.col-md-5.pull-right
+	%p 
+		1.- El archivo debe contener solamente registros de carga con el siguiente formato
+		%br
+		Registro=Propietario/Piso,unidad, deuda, interes, expensa, extrordinarias, Total
+	%p
+		2.- El campo Propietario/Piso se carga con el siguiente formato\n
+		%br
+		NombrePiso (Nombre Propietario). Ej: 1 (Ulke Esteban)

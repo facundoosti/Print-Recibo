@@ -1,0 +1,37 @@
+!!! Strict
+%html{lang: "en"}
+  %head
+    %title Print-Recibos
+    %link{href: "/img/ab3.jpg", rel: "shortcut icon"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %link{href: "/css/bootstrap.min.css", media: "screen", rel: "stylesheet"}
+    %link{href: "/css/site.css", media: "screen", rel: "stylesheet"}
+    %link{href: "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", media: "screen", rel: "stylesheet"}
+    %link{href: "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css", rel: "stylesheet"}
+
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"}
+    %script{src: "/js/bootstrap.min.js"}
+    %script{src: "/js/bootstrap-filestyle.min.js"}
+  %body
+    / = partial 'layout/menu'
+    .container#main-container
+      - if flash[:error]
+        .alert.alert-danger
+          %button.close{type: "button", data:{dismiss: "alert"}}
+            &times;
+          = flash[:error]
+
+      - if flash[:notice]
+        .alert.alert-success
+          %button.close{type: "button", data:{dismiss: "alert"}}
+            &times;
+          = flash[:notice]
+      = yield
+    = yield_content :javascripts
+    :javascript
+      $(":file").filestyle();
+      $(".close").click(function(){
+          $(".alert").hide("slow");
+        });
+        $(".alert").delay(4000).fadeOut('Slow');
+      });

@@ -1,0 +1,121 @@
+.btn-delete {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* carrousel */
+
+.carousel-inner .active.left { left: -25%; }
+.carousel-inner .next        { left:  25%; }
+.carousel-inner .prev    { left: -25%; }
+.carousel-control        { width:  4%; }
+.carousel-control.left,.carousel-control.right {background-image:none;}
+
+.connect-options {
+  margin-bottom: 5px;
+  text-align:center;
+}
+.connect-options button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33%;
+  padding: 0;
+  background: none;
+  font-family: "ProximaNova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #525355;
+  text-align: center;
+  border: none;
+}
+.connect-options button .auth-container {
+  display: inline-block;
+  padding: 24px;
+  -webkit-border-radius: 64px;
+  -moz-border-radius: 64px;
+  border-radius: 64px;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -ms-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.facebook-auth .auth-container {
+  background-color: #3B5998;
+}
+.twitter-auth .auth-container {
+  background-color: #4099FF;
+}
+.google-auth .auth-container {
+  background-color: #D34836;
+}
+.connect-options:after {
+  clear: both;
+}
+.connect-options:before, .connect-options:after {
+  display: table;
+  content: "";
+}
+.connect-options button .auth-container img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+}
+.button a {
+  color: #525355;
+}
+.login_remeber{
+  padding-top: 0px!important;
+}
+
+.profile-img {
+  margin: 1px 10px 1px 2px;
+}
+
+.blue{
+  color: #0B0B61;
+}
+
+.updated{
+  margin-bottom:3px;
+  margin-top:3px;
+}
+
+.label-search {
+  padding-top: 8px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.rh-sm {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button-add-taks {
+  margin-top:3px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #D3D3D3;
+}
+
+#map {
+  width: 700px;
+  height: 400px;
+}
