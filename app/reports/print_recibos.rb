@@ -1,13 +1,10 @@
 class ImprimirRecibos < Prawn::Document
 
-  def initialize(registers=nil,periodo=nil,vencimiento=nil, detalle=nil, valor)
+  def initialize(registers=nil,periodo=nil,vencimiento=nil, detalle=nil, valor, consorcio)
     super()
     font_size 10
     info = {
-      consorcio: {
-        nombre: 'estado de israel 4671',
-        ciudad: 'capital federal'
-      },
+      consorcio: consorcio,
       periodo: mes(periodo.month).capitalize,
       vencimiento: vencimiento.strftime('%d/%m/%Y'),
       detalle: detalle.upcase,
@@ -39,7 +36,8 @@ class ImprimirRecibos < Prawn::Document
       table theader,column_widths: [200, 110, 110, 50, 50]
       table [['recibo autorizado'.upcase]],column_widths: [520],cell_style:{background_color:"8C8C8C", align: :center, size: 12, font_style: :bold }
       table [[ 'DETALLE', 'IMPORTE', "RECIBI DE:      #{recibo[:propietario].upcase}" ]] ,column_widths: [145, 55, 320],cell_style:{ font_style: :bold}
-      table [[{content: "#{info[:detalle]}".upcase }, vtotal, "LA SUMA DE:    #{numero_a_palabras(vtotal).upcase} CON #{decimal_to_s(vtotal)}"]] ,column_widths: [145, 55, 320],cell_style:{ font_style: :bold, height: 70}
+      fraccion = " CON #{decimal_to_s(vtotal)}" unless vtotal.modulo(1).zero? 
+      table [[{content: "#{info[:detalle]}".upcase }, vtotal, "LA SUMA DE:    #{numero_a_palabras(vtotal).upcase}#{fraccion}"]] ,column_widths: [145, 55, 320],cell_style:{ font_style: :bold, height: 70}
       table [[info[:text], total, cheque, fp ]],column_widths: [145, 55,180,140]
 
       text_box "Sello y Firma", at: [330, cursor + 70],
