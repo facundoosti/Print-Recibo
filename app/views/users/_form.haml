@@ -1,12 +1,11 @@
 .row
   .form-group
-    %label.col-md-2.control-label{for: "nombre"} Consorcio
+    %label.col-md-2.control-label{for:"consorcios"} Consorcio
     .col-md-9
-      %input.form-control#nombre{type: "nombre", name: "nombre", value:'estado de israel 4671', required: 'required'}
-  .form-group
-    %label.col-md-2.control-label{for: "ciudad"} Ciudad
-    .col-md-9
-      %input.form-control#ciudad{type: "ciudad", name: "ciudad", value:'capital federal', required: 'required'}    
+      %select.form-control{name: "consorcio_id",  required: true}
+        %option{value: ''}= ' '
+        - consorcios.each do |consorcio|
+          %option{value: consorcio.id}= consorcio.nombre  
   .form-group
     %label.col-md-2.control-label{for: "file"} Archivo
     .col-md-9
@@ -15,6 +14,14 @@
     %label.col-md-2.control-label{for: "mes"} Periodo
     .col-md-9
       %input.form-control#mes{type: "month", name: "month", required: 'required'}
+  .form-group
+    %label.col-md-2.control-label{for: "vencimineto"} Vencimiento
+    .col-md-9
+      %input.form-control#vencimineto{type: "date", name: "vencimiento", value: Date.today,required: 'required'}
+  .form-group
+    %label.col-md-2.control-label{for: "detalle"} Detalle
+    .col-md-9
+      %textarea.form-control#detalle{type: "text", name: "detalle", value: 'expensas',required: 'required'}    
   .form-group
     %label.col-md-2.control-label{for: "expensas"}
       Expensas

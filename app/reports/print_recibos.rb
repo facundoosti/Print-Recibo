@@ -1,30 +1,17 @@
 class ImprimirRecibos < Prawn::Document
 
-  def initialize(registers=nil,periodo=nil,vencimiento=nil, detalle=nil, valor, consorcio)
+  def initialize(registers=nil,info)
     super()
     font_size 10
-    info = {
-      consorcio: consorcio,
-      periodo: mes(periodo.month).capitalize,
-      vencimiento: vencimiento.strftime('%d/%m/%Y'),
-      detalle: detalle.upcase,
-      text:   <<-eos
-                No acredita el pago de deudas
-                ateriores, si las hubiere y esta
-                sujeto a su posterior reajuste
-              eos
-    }
-    
-    main registers, info, valor
+    main registers, info
   end
 
   private
   
-  def main recibos, info, valor
+  def main recibos, info
 
     recibos.each do |recibo|
-      #recibo = recibos.first
-      vtotal = (valor ? recibo[:extraordinaria] : recibo[:expensa])
+      vtotal = (info[:valor] ? recibo[:extraordinaria] : recibo[:expensa])
 
       total = make_table([ ["TOTAL"], [vtotal] ],cell_style:{ font_style: :bold, height: 30,align: :center},column_widths: [55],row_colors: ["FFFFFF", "8C8C8C"] )
       cheque = make_table([ ['CHEQUE N°'], ['C/BANCO'] ],cell_style:{ font_style: :bold, height: 30},column_widths: [180] )

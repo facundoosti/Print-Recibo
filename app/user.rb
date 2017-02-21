@@ -4,6 +4,7 @@ module PrintRecibos
     # use Shield::Middleware, "/sessions/login"
     set :views, File.expand_path('../views/users', __FILE__)
     helpers Sinatra::ContentFor
+    register Sinatra::ActiveRecordExtension
     
     helpers do
       def current_user
@@ -38,10 +39,8 @@ module PrintRecibos
       end
     end
 
-    # before { require_sign_in }
-
     get '/' do
-      haml :'layout/index'
+      haml :'layout/index', locals:{consorcios: Consorcios.all}
     end
   end
 end

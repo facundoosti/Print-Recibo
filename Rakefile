@@ -8,9 +8,14 @@ task :console do
   IRB.start
 end
 
+require "sinatra/activerecord/rake"
+
 namespace :db do
   desc "Seeds"
   task :seeds do
     require './script/seed.rb'
+  end
+  task :load_config do
+    require "./init"
   end
 end

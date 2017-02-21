@@ -7,7 +7,7 @@
 		%hr
 .col-md-6
 	%form.form-horizontal{action: "/print-recibos", method: :post, enctype: "multipart/form-data"}
-		= partial :'form'
+		= partial :'form', locals:{consorcios: consorcios}
 		%button.btn.btn-primary.pull-right{type: "submit"} Imprimir Recibos
 
 .col-md-5.pull-right
@@ -17,3 +17,7 @@
 		2.- El archivo debe contener solamente registros de carga con el siguiente formato
 		%br
 		Registro=Propietario, Piso,Unidad, Expensa, Extrordinarias, Total
+	%p
+		Nota: Vencimientos: Ordinarias dia 10 - Extraordinarias dia 20
+	%br
+	%a.btn.btn-md.btn-warning.pull-right{href: "/consorcios"} Consorcios

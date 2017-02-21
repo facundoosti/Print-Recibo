@@ -1,0 +1,13 @@
+%h3 Apiarios
+%h4
+  = "Productor: #{producer.fullname}"
+  %a.btn.btn-mini.btn-primary.pull-right{href: "/producers/#{producer.id}/apiarios"} Atras
+%hr
+-if apiarios
+  - apiarios.each do |apiario|
+    %input.apiario{type: 'hidden', data:{name: apiario.name, lat: apiario.lat, lng:apiario.lng}}
+.row
+  .col-md-8
+    #map
+
+%script{src: "/js/views/apiarios/show_apiarios.js"}

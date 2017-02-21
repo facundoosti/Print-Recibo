@@ -1,0 +1,9 @@
+%h4 
+  Editar Consorcios
+  %a.btn.btn-mini.btn-primary.pull-right{href: "/consorcios"}Atras
+%hr
+
+%form.form-horizontal{action: "/consorcios/#{consorcio.id}", method: :post, name: "consorcio", id: "consorcio", enctype: "multipart/form-data"}
+  %input{name:"_method", type:"hidden", value:"put"}
+  = partial :'consorcios/form', locals:{consorcio:consorcio}
+  %button.btn.btn-primary{type: "submit"}  Guardar

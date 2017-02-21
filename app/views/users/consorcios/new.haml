@@ -1,0 +1,8 @@
+%h4 
+	Nuevo Consorcio
+	%a.btn.btn-mini.btn-primary.pull-right{href: "/consorcios"}Atras
+%hr
+
+%form.form-horizontal{action: "/consorcios", method: :post, name: "consorcio", id: "consorcio", enctype: "multipart/form-data"}
+	= partial :'consorcios/form', locals:{ consorcio:consorcio } 
+	%button.btn.btn-primary{type: "submit"}Crear

@@ -9,4 +9,5 @@ Bundler.require :default, env
 Dir['app/*.rb'].sort.each { |req| require_relative req }
 Dir['app/routes/**/*.rb'].sort.each { |req| require_relative req }
 Dir['app/reports/*.rb'].sort.each { |req| require_relative req }
+Dir['app/models/*.rb'].sort.each { |req| require_relative req }
 Dir['app/helpers/*.rb'].sort.each { |req| require_relative req }
