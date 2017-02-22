@@ -6,8 +6,17 @@ module PrintRecibos
     post '/print-recibos' do
 
       begin
+        filename = params[:file][:filename]
+        file = params[:file][:tempfile]
+
+        File.open("./file/#{filename}", 'wb') do |f|
+          f.write(file.read)
+        end
+
         registers = read(params['file']) 
         
+        File.delete("./file/#{filename}")
+
         info = {
             consorcio: Consorcios.find(params['consorcio_id']),
             periodo: mes(Date::strptime(params['month'], '%Y-%m').month).capitalize,

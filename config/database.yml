@@ -7,8 +7,5 @@ test:
   database: db/consorcio.sqlite3
 
 production:
-  adapter: mysql2
-  host: localhost #addr:181.166.1.114
-  username: root
-  password: 'facuy..'
-  database: consorcio
+  adapter: sqlite3
+  database: db/consorcio.sqlite3
