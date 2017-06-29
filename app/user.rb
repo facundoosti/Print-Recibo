@@ -14,10 +14,6 @@ module PrintRecibos
       #def require_sign_in
       #  error(401) unless authenticated(AdminUser) || request.path_info == "/sessions/login"
       #end
-       
-      def porcentaje
-        sala.porcentaje
-      end
 
       def print_date(obj, date)
         date = obj.send(date)

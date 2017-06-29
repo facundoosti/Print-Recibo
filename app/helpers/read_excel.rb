@@ -1,7 +1,14 @@
 def read file, pestaña=0
 	
+  filename = file[:filename]
+  file = file[:tempfile]
+
+  File.open("./file/#{filename}", 'wb') do |f|
+    f.write(file.read)
+  end
+
 	#Abro el Archivo
-	ods = Roo::Spreadsheet.open("./file/#{file[:filename]}")
+	ods = Roo::Spreadsheet.open("./file/#{filename}")
 	
 	#Leo todos los registers del archivo
 	registers = [].tap do |registers|
@@ -12,4 +19,7 @@ def read file, pestaña=0
 		  	total: register[5].to_f}
 		end
 	end
+
+  File.delete("./file/#{filename}")
+  registers
 end

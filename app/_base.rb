@@ -96,15 +96,6 @@ module PrintRecibos
     error do
       "Error Base"
     end
-
-    #Metodos de Consulta
-    def producers
-      sala.producers.asc :last_name
-    end
-
-    def sala
-      current_user.sala
-    end
   end
 
 end
