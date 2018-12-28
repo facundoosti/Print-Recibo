@@ -2,18 +2,18 @@
 
 module PrintRecibos
   class Base < Sinatra::Base
-    
+
     configure do
-      
+
       # Directory Structure
       set :root, File.expand_path('../../', __FILE__)#Dir.pwd
       set :public_folder, File.dirname(__FILE__) + '/public'
       set :haml, format: :html5, layout: :'layout/layout'
-      
+
       # view statics & flash
       use Rack::Static, urls: ['/css', '/js', '/fonts', '/img', '/system'], root: 'public'
       use Rack::Flash, :accessorize => [:notice, :error]
-  
+
       #partial
       register Sinatra::Partial
       set :partial_template_engine, :haml
@@ -44,7 +44,7 @@ module PrintRecibos
       also_reload 'app/models/*.rb'
       also_reload 'app/routes/**/*.rb'
       also_reload 'app/reports/**/*.rb'
-    end  
+    end
 
     enable :sessions, :logging, :method_override, :dump_errors
     set :session_secret, 'sdjgfuwy47digvdsf'

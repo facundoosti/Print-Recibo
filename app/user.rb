@@ -5,7 +5,7 @@ module PrintRecibos
     set :views, File.expand_path('../views/users', __FILE__)
     helpers Sinatra::ContentFor
     register Sinatra::ActiveRecordExtension
-    
+
     helpers do
       def current_user
         authenticated(AdminUser)

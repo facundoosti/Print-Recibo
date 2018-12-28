@@ -5,7 +5,7 @@
       %select.form-control{name: "consorcio_id",  required: true}
         %option{value: ''}= ' '
         - consorcios.each do |consorcio|
-          %option{value: consorcio.id}= consorcio.nombre  
+          %option{value: consorcio.id}= consorcio.nombre
   .form-group
     %label.col-md-2.control-label{for: "file"} Archivo
     .col-md-9
@@ -21,12 +21,12 @@
   .form-group
     %label.col-md-2.control-label{for: "detalle"} Detalle
     .col-md-9
-      %textarea.form-control#detalle{type: "text", name: "detalle", value: 'expensas',required: 'required'}    
+      %textarea.form-control#detalle{type: "text", name: "detalle", value: 'expensas',required: 'required'}
   .form-group
     %label.col-md-2.control-label{for: "expensas"}
       Expensas
     .col-md-10
       .checkbox
-        %input{type: "hidden", name: "expensa", value: :false}  
-        %input{type: "checkbox", name: "expensa", value: :true}
+        %input#expensa{type: "hidden", name: "expensa", value: :false}
+        %input#expensa{type: "checkbox", name: "expensa", checked: :false, value: :true}
         (Coloca check para imprimir expensas extraordinarias)

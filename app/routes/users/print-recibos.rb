@@ -4,32 +4,15 @@ module PrintRecibos
   class App
 
     post '/print-recibos' do
-
-      registers = read(params[:file]) 
-      
+      registers = read(params[:file][:tempfile])
       begin
-        
-        info = {
-            consorcio: Consorcios.find(params['consorcio_id']),
-            periodo: mes(Date::strptime(params['month'], '%Y-%m').month).capitalize,
-            vencimiento: Date.parse(params['vencimiento']).strftime('%d/%m/%Y'),
-            detalle: params['detalle'].upcase,
-            valor: (params['expensa'] == 'false') ? false : true,
-            text:   <<-eos
-                      No acredita el pago de deudas
-                      ateriores, si las hubiere y esta
-                      sujeto a su posterior reajuste
-                    eos
-          }
-
-        pdf = ImprimirRecibos.new registers, info
         content_type :'application/pdf'
+        pdf = ImprimirRecibos.new(registers, data(params))
         pdf.render
       rescue Exception => e
         flash[:error]="Extension del archivo incorrecto.Debe ser xlsx o similar."
         redirect :'/'
       end
-    
     end
   end
 end

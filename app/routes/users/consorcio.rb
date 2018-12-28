@@ -6,14 +6,15 @@ module PrintRecibos
 
       #GET index
       get do
-        haml :'consorcios/index', locals:{consorcios: Consorcios.all}
+        haml :'recibo/index', locals:{recibo:{}}
+        #aml :'consorcios/index', locals:{consorcios: Consorcios.all}
       end
-      
+
       #GET new
       get '/new' do
         haml :'consorcios/new', locals:{ consorcio: Consorcios.new}
       end
-      
+
       #GET edit
       get '/:id/edit' do
         consorcio = Consorcios.find(params[:id])
@@ -25,7 +26,7 @@ module PrintRecibos
         consorcio = Consorcios.find(params[:id])
         haml :'consorcios/show',locals:{consorcio:consorcio}
       end
-      
+
       post do
         consorcio = Consorcios.new params[:consorcio]
         begin
@@ -61,7 +62,7 @@ module PrintRecibos
           flash[:notice] = 'Consorcio borrado.'
         rescue Exception => e
           flash[:error] = e.message
-        end 
+        end
         redirect :'/consorcios'
       end
     end
