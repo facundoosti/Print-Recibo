@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108142800) do
+ActiveRecord::Schema.define(version: 2013_11_08_142800) do
 
-  create_table "consorcios", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "ciudad"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "consorcios", id: :serial, force: :cascade do |t|
+    t.string "nombre"
+    t.string "ciudad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
