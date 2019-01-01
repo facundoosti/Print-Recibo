@@ -17,7 +17,6 @@ gem "prawn-table", require: "prawn/table"
 gem "roo", require: 'roo'
 gem 'pg'
 gem "spreadsheet", require: 'spreadsheet'
-gem 'bootstrap', '~> 4.2.1'
 
 group :development do
   gem "better_errors"
