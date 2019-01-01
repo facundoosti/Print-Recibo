@@ -24,9 +24,9 @@ module PrintRecibos
     Prawn::Font::AFM.hide_m17n_warning = true
 
     #Log
-    file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
-    file.sync = true
-    use Rack::CommonLogger, file
+    #file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+    #file.sync = true
+    #use Rack::CommonLogger, file
 
     configure :development do
       use BetterErrors::Middleware
