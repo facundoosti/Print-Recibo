@@ -15,7 +15,7 @@ gem "sinatra-activerecord", require: "sinatra/activerecord"
 gem "prawn", require: "prawn"
 gem "prawn-table", require: "prawn/table"
 gem "roo", require: 'roo'
-gem "sqlite3", require: 'sqlite3'
+gem 'pg'
 gem "spreadsheet", require: 'spreadsheet'
 
 group :development do
