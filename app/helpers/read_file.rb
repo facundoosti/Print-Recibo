@@ -18,7 +18,7 @@ end
 
 def data(params)
   {
-    consorcio: Consorcios.find(params['consorcio_id']),
+    consorcio: Consorcio.find(params['consorcio_id']),
     periodo: mes(Date::strptime(params['month'], '%Y-%m').month).capitalize,
     vencimiento: Date.parse(params['vencimiento']).strftime('%d/%m/%Y'),
     detalle: params['detalle'].upcase,

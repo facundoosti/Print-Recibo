@@ -3,17 +3,11 @@
   %head
     %title Print-Recibos
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
-    %link{href: "/css/bootstrap.min.css", media: "screen", rel: "stylesheet"}
-    %link{href: "/css/site.css", media: "screen", rel: "stylesheet"}
-    %link{href: "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", media: "screen", rel: "stylesheet"}
+    %link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css", :integrity => "sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS", :rel => "stylesheet"}/
     %link{href: "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css", rel: "stylesheet"}
-
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"}
-    %script{src: "/js/bootstrap.min.js"}
-    %script{src: "/js/bootstrap-filestyle.min.js"}
   %body
-    / = partial 'layout/menu'
-    .container#main-container
+    .container-fluid
       - if flash[:error]
         .alert.alert-danger
           %button.close{type: "button", data:{dismiss: "alert"}}
@@ -26,6 +20,9 @@
             &times;
           = flash[:notice]
       = yield
+    %script{:crossorigin => "anonymous", :integrity => "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo", :src => "https://code.jquery.com/jquery-3.3.1.slim.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k", :src => "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"}
     = yield_content :javascripts
     :javascript
       $(":file").filestyle();

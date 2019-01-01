@@ -1,32 +1,29 @@
-.row
-  .form-group
-    %label.col-md-2.control-label{for:"consorcios"} Consorcio
-    .col-md-9
-      %select.form-control{name: "consorcio_id",  required: true}
-        %option{value: ''}= ' '
-        - consorcios.each do |consorcio|
-          %option{value: consorcio.id}= consorcio.nombre
-  .form-group
-    %label.col-md-2.control-label{for: "file"} Archivo
-    .col-md-9
-      %input.form-control.filestyle#file{type: "file", name: "file", 'data-buttonText': "Abrir Archivo", 'data-iconName':"glyphicon glyphicon-inbox", required: 'required'}
-  .form-group
-    %label.col-md-2.control-label{for: "mes"} Periodo
-    .col-md-9
-      %input.form-control#mes{type: "month", name: "month", required: 'required'}
-  .form-group
-    %label.col-md-2.control-label{for: "vencimineto"} Vencimiento
-    .col-md-9
-      %input.form-control#vencimineto{type: "date", name: "vencimiento", value: Date.today,required: 'required'}
-  .form-group
-    %label.col-md-2.control-label{for: "detalle"} Detalle
-    .col-md-9
-      %textarea.form-control#detalle{type: "text", name: "detalle", value: 'expensas',required: 'required'}
-  .form-group
-    %label.col-md-2.control-label{for: "expensas"}
-      Expensas
-    .col-md-10
-      .checkbox
-        %input#expensa{type: "hidden", name: "expensa", value: :false}
-        %input#expensa{type: "checkbox", name: "expensa", checked: :false, value: :true}
-        (Coloca check para imprimir expensas extraordinarias)
+.form-group
+  %label.control-label{for:"consorcios"} Consorcio
+  %select.form-control{name: "consorcio_id",  required: true}
+    %option{value: ''}= ' '
+    - consorcios.each do |consorcio|
+      %option{value: consorcio.id}= consorcio.nombre
+.input-group
+  .custom-file
+    %label.control-label{for: "file"} Archivo
+    %input#inputGroupFile.custom-file-input{"aria-describedby" => "inputGroupFileAddon04", :type => "file", name: 'file'}/
+    %label.custom-file-label{:for => "inputGroupFile"} Abrir Archivo
+  .input-group-append
+    %button#inputGroupFileAddon04.btn.btn-outline-secondary{:type => "button"} Subir
+.form-group
+  %label.control-label{for: "mes"} Periodo
+  %input.form-control#mes{type: "month", name: "month", required: 'required'}
+.form-group
+  %label.control-label{for: "vencimineto"} Vencimiento
+  %input.form-control#vencimineto{type: "date", name: "vencimiento", value: Date.today,required: 'required'}
+.form-group
+  %label.control-label{for: "detalle"} Detalle
+  %textarea.form-control#detalle{type: "text", name: "detalle", value: 'expensas',required: 'required'}
+.form-group
+  %label.control-label{for: "expensas"} Expensas
+  .checkbox
+    %input#expensa{type: "hidden", name: "expensa", value: :false}
+    %input#expensa{type: "checkbox", name: "expensa", checked: :false, value: :true}
+    (Coloca check para imprimir expensas extraordinarias)
+
