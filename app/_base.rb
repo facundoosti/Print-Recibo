@@ -19,7 +19,12 @@ module PrintRecibos
       set :partial_template_engine, :haml
       enable :partial_underscores
       set :gmap_key, 'AIzaSyCeEg8IA3s1tgq7Xe64kBfPm7tMJR7VlEc'
+
+      use Rack::Auth::Basic, "Protected Area" do |username, password|
+        username == 'facundoosti@gmail.com' && password == 'facuy..'
+      end
     end
+
 
     Prawn::Font::AFM.hide_m17n_warning = true
 

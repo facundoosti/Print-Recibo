@@ -4,24 +4,24 @@
     %a.btn.btn-mini.btn-primary.pull-right{href: "/"} Atras
   %a.btn.btn-mini.btn-primary.pull-right{href: "/consorcios/new"} Nuevo Consorcio
   %br
-  %hr   
+  %hr
 .row
-  .col-md-12
-    %table.table.table-condensed.table-hover#list(cellspacing="0")
+  .col-md
+    %table.table.table-hover
       %thead
         %tr
-          %th Nombre
-          %th Ciudad
-          %th.text-center Acciones
+          %th{scope: 'col'} Nombre
+          %th{scope: 'col'} Ciudad
+          %th.text-center{scope: 'col'} Acciones
       %tboby
         - consorcios.each do |consorcio|
           %tr
-            %td= consorcio.nombre
+            %td{scope: 'row'}= consorcio.nombre
             %td= consorcio.ciudad
-            %td.col-md-2.text-center
+            %td.text-center
               %ul.list-unstyled.list-inline
                 %li
-                  %a.btn.btn-sm.btn-success.fa.fa-pencil-square-o{href: "/consorcios/#{consorcio.id}/edit", title:'Editar'}
+                  %a.btn.btn-success.fa.fa-pencil-square-o{href: "/consorcios/#{consorcio.id}/edit", title:'Editar'}
                 %li
                   %form.btn-delete{method:"post", action:"/consorcios/#{consorcio.id}/delete", onsubmit:"return confirm('Seguro que desea borrar el registro?');"}
                     %input{ type:"hidden", name:"_method", value:"delete" }
