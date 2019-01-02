@@ -1,9 +1,6 @@
-.row
-  .form-group
-    %label.col-md-2.control-label{for: "nombre"} Consorcio
-    .col-md-6
-      %input.form-control#nombre{type: "nombre", name: "consorcio[nombre]", value:consorcio.nombre, required: 'required'}
-  .form-group
-    %label.col-md-2.control-label{for: "ciudad"} Ciudad
-    .col-md-6
-      %input.form-control#ciudad{type: "ciudad", name: "consorcio[ciudad]", value:consorcio.ciudad, required: 'required'} 
+.form-group
+  %label.control-label{for: "nombre"} Consorcio
+  %input.form-control#nombre{type: "nombre", name: "consorcio[nombre]", value:consorcio.nombre, required: 'required'}
+.form-group
+  %label.control-label{for: "ciudad"} Ciudad
+  %input.form-control#ciudad{type: "ciudad", name: "consorcio[ciudad]", value:consorcio.ciudad, required: 'required'}

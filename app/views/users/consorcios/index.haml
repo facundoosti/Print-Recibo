@@ -1,8 +1,10 @@
 .row
-  %h3
-    Consorcios
-    %a.btn.btn-mini.btn-primary.pull-right{href: "/"} Atras
-  %a.btn.btn-mini.btn-primary.pull-right{href: "/consorcios/new"} Nuevo Consorcio
+  .col-md-6
+    %h3
+      Consorcios
+  .col-md-6
+    %a.btn.btn-sm.btn-danger{href: "/"} Atras
+    %a.btn.btn-sm.btn-primary{href: "/consorcios/new"} Nuevo Consorcio
   %br
   %hr
 .row
@@ -12,17 +14,18 @@
         %tr
           %th{scope: 'col'} Nombre
           %th{scope: 'col'} Ciudad
-          %th.text-center{scope: 'col'} Acciones
+          %th
       %tboby
         - consorcios.each do |consorcio|
           %tr
             %td{scope: 'row'}= consorcio.nombre
             %td= consorcio.ciudad
-            %td.text-center
-              %ul.list-unstyled.list-inline
-                %li
-                  %a.btn.btn-success.fa.fa-pencil-square-o{href: "/consorcios/#{consorcio.id}/edit", title:'Editar'}
-                %li
-                  %form.btn-delete{method:"post", action:"/consorcios/#{consorcio.id}/delete", onsubmit:"return confirm('Seguro que desea borrar el registro?');"}
+            %td
+              .btn-group
+                %button.btn.btn-danger.btn-sm.dropdown-toggle{"aria-expanded": "false", "aria-haspopup": "true", "data-toggle": "dropdown", type: "button"}
+                  Acciones
+                .dropdown-menu
+                  %a.dropdown-item{href: "/consorcios/#{consorcio.id}/edit"} Editar
+                  %form{method:"post", action:"/consorcios/#{consorcio.id}/delete", onsubmit:"return confirm('Seguro que desea borrar el registro?');"}
                     %input{ type:"hidden", name:"_method", value:"delete" }
-                    %button.btn.btn-danger.btn-sm.fa.fa-trash-o{ title: 'Borrar',type:'submit' }
+                    %button.dropdown-item{href: "#", type: 'submit'} Eliminar
