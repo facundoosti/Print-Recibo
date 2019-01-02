@@ -1,0 +1,12 @@
+development:
+  auth:
+    username: development
+    password: development
+test:
+  auth:
+    username: test
+    password: test
+production:
+  auth:
+    username: facundoosti@gmail.com
+    password: facuy..
