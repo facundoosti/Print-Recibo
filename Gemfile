@@ -9,7 +9,7 @@ gem "rack-protection"
 gem "rack-rewrite"
 gem "puma"
 gem "sinatra", require: "sinatra/base"
-gem "sinatra-contrib", require: ["sinatra/contrib", "sinatra/content_for", "sinatra/reloader", "sinatra/namespace"]
+gem "sinatra-contrib", require: ["sinatra/base", "sinatra/config_file", "sinatra/contrib", "sinatra/content_for", "sinatra/reloader", "sinatra/namespace"]
 gem "sinatra-partial", require: "sinatra/partial"
 gem "sinatra-activerecord", require: "sinatra/activerecord"
 gem "prawn", require: "prawn"

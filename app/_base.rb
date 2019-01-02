@@ -20,8 +20,11 @@ module PrintRecibos
       enable :partial_underscores
       set :gmap_key, 'AIzaSyCeEg8IA3s1tgq7Xe64kBfPm7tMJR7VlEc'
 
+      register Sinatra::ConfigFile
+      config_file 'config/config.yml'
+
       use Rack::Auth::Basic, "Protected Area" do |username, password|
-        username == 'facundoosti@gmail.com' && password == 'facuy..'
+        username == settings.auth.fetch('username') && password == settings.auth.fetch('password')
       end
     end
 
