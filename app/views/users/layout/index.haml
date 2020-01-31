@@ -4,7 +4,7 @@
 		%hr
 		%form{action: "/print-recibos", method: :post, enctype: "multipart/form-data"}
 			= partial :'form', locals:{consorcios: consorcios}
-			%button.btn.btn-primary{type: "submit"} Imprimir Recibos
+			%button.btn.btn-block.btn-primary{type: "submit"} Imprimir Recibos
 	.col-sm
 		%h2 Formato de Archivo (xlsx)
 		%hr
