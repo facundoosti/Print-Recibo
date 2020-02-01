@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="offset-1 col-5">
+    <h3>Imprimir Recibos</h3>
+    <hr/>
+    <form action="/print-recibos" enctype="multipart/form-data" method="<%= :post %>">
+      <%= partial :'form', locals:{consorcios: consorcios} %>
+      <button class="btn btn-block btn-primary" type="submit">Imprimir Recibos</button>
+    </form>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Formato de Archivo (xlsx)</h5>
+        <hr>
+        <p class="card-text">1.- El archivo debe comenzar de la fila nro 2,  dejando la primera en blanco o con sus campos Cabecera.</p>
+
+        <p class="card-text">2.- El archivo debe contener solamente registros de carga con el siguiente formato. Ej:
+        Registro=Propietario, Piso,Unidad, Expensa, Extrordinarias, Total</p>
+
+        <footer  class="mb-4">
+          <small class="text-muted"> Nota:
+          Vencimientos: Ordinarias dia 10 - Extraordinarias dia 20
+          Detalle Ordinarias: 'EXPENSAS'
+          Detalle Extraordinarias:  'ADICIONAL PREVISION MAYORES COSTOS' </small>
+        </footer>
+
+        <a class="btn btn-warning btn-block" href="/consorcios">Consorcios</a>
+      </div>
+    </div>
+  </div>
+</div>

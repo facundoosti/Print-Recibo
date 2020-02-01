@@ -1,22 +1,22 @@
 .row
-	.col-sm
-		%h2 Imprimir Recibos
-		%hr
-		%form{action: "/print-recibos", method: :post, enctype: "multipart/form-data"}
-			= partial :'form', locals:{consorcios: consorcios}
-			%button.btn.btn-block.btn-primary{type: "submit"} Imprimir Recibos
-	.col-sm
-		%h2 Formato de Archivo (xlsx)
-		%hr
-		%p.py2
-			1.- El archivo debe comenzar de la fila nro 2,  dejando la primera en blanco o con sus campos Cabecera.
-		%p.py2
-			2.- El archivo debe contener solamente registros de carga con el siguiente formato
-			Registro=Propietario, Piso,Unidad, Expensa, Extrordinarias, Total
-		%p.py2
-			Nota:
-			Vencimientos: Ordinarias dia 10 - Extraordinarias dia 20
-			Detalle Ordinarias: 'EXPENSAS'
-			Detalle Extraordinarias:	'ADICIONAL PREVISION MAYORES COSTOS'
-		%br
-		%a.btn.btn-warning{href: "/consorcios"} Consorcios
+  .col-sm
+    %h2 Imprimir Recibos
+    %hr
+    %form{action: "/print-recibos", method: :post, enctype: "multipart/form-data"}
+      = partial :'form', locals:{consorcios: consorcios}
+      %button.btn.btn-block.btn-primary{type: "submit"} Imprimir Recibos
+  .col-sm
+    %h2 Formato de Archivo (xlsx)
+    %hr
+    %p.py2
+      1.- El archivo debe comenzar de la fila nro 2,  dejando la primera en blanco o con sus campos Cabecera.
+    %p.py2
+      2.- El archivo debe contener solamente registros de carga con el siguiente formato
+      Registro=Propietario, Piso,Unidad, Expensa, Extrordinarias, Total
+    %p.py2
+      Nota:
+      Vencimientos: Ordinarias dia 10 - Extraordinarias dia 20
+      Detalle Ordinarias: 'EXPENSAS'
+      Detalle Extraordinarias:  'ADICIONAL PREVISION MAYORES COSTOS'
+    %br
+    %a.btn.btn-warning{href: "/consorcios"} Consorcios

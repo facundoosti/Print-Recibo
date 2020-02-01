@@ -36,7 +36,7 @@ module PrintRecibos
     end
 
     get '/' do
-      haml :'layout/index', locals:{consorcios: Consorcio.all}
+      erb :'layout/index', locals:{consorcios: Consorcio.all}
     end
   end
 end

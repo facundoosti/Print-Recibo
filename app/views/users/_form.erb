@@ -1,0 +1,43 @@
+<div class="form-group">
+  <label class="control-label" for="consorcios">Consorcio</label>
+  <select class="form-control" name="consorcio_id" required="<%= true %>">
+    <option>
+      <%= ' ' %>
+    </option>
+    <% consorcios.each do |consorcio| %>
+      <option value="<%= consorcio.id %>">
+        <%= consorcio.nombre %>
+      </option>
+    <% end %>
+  </select>
+</div>
+<div class="input-group">
+  <div class="custom-file">
+    <label class="control-label" for="file">Archivo</label>
+    <input aria-describedby="inputGroupFileAddon04" class="custom-file-input" id="inputGroupFile" name="file" type="file">/</input>
+    <label class="custom-file-label" for="inputGroupFile">Abrir Archivo</label>
+  </div>
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" id="inputGroupFileAddon04" type="button">Subir</button>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="mes">Periodo</label>
+  <input class="form-control" id="mes" name="month" required="required" type="month"></input>
+</div>
+<div class="form-group">
+  <label class="control-label" for="vencimineto">Vencimiento</label>
+  <input class="form-control" id="vencimineto" name="vencimiento" required="required" type="date" value="<%= Date.today %>"></input>
+</div>
+<div class="form-group">
+  <label class="control-label" for="detalle">Detalle</label>
+  <textarea class="form-control" id="detalle" name="detalle" required="required" type="text" value="expensas"></textarea>
+</div>
+<div class="form-group">
+  <label class="control-label" for="expensas"></label>
+  <div class="checkbox">
+    <input id="expensa" name="expensa" type="hidden" value="<%= :false %>"></input>
+    <input checked="<%= :false %>" id="expensa" name="expensa" type="checkbox" value="<%= :true %>"></input>
+    Expensas (Coloca check para imprimir expensas extraordinarias)
+  </div>
+</div>

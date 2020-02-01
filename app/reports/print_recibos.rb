@@ -1,16 +1,20 @@
 class ImprimirRecibos < Prawn::Document
 
+  attr_accessor :registers, :info
+
   def initialize(registers=nil,info)
     super()
+    @registers = registers
+    @info = info
     font_size 10
-    main registers, info
+    perform
   end
 
   private
 
-  def main recibos, info
+  def perform
 
-    recibos.each do |recibo|
+    registers.each do |recibo|
       vtotal = (info[:valor] ? recibo[:extraordinaria] : recibo[:expensa])
 
       total = make_table([ ["TOTAL"], [vtotal] ],cell_style:{ font_style: :bold, height: 30,align: :center},column_widths: [55],row_colors: ["FFFFFF", "8C8C8C"] )

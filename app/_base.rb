@@ -8,7 +8,7 @@ module PrintRecibos
       # Directory Structure
       set :root, File.expand_path('../../', __FILE__)#Dir.pwd
       set :public_folder, File.dirname(__FILE__) + '/public'
-      set :haml, format: :html5, layout: :'layout/layout'
+      set :erb, format: :html5, layout: :'layout/layout'
 
       # view statics & flash
       use Rack::Static, urls: ['/css', '/js', '/fonts', '/img', '/system'], root: 'public'
@@ -16,7 +16,7 @@ module PrintRecibos
 
       #partial
       register Sinatra::Partial
-      set :partial_template_engine, :haml
+      set :partial_template_engine, :erb
       enable :partial_underscores
       set :gmap_key, 'AIzaSyCeEg8IA3s1tgq7Xe64kBfPm7tMJR7VlEc'
 
