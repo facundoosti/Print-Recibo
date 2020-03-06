@@ -8,5 +8,5 @@ test:
     password: test
 production:
   auth:
-    username: facundoosti@gmail.com
-    password: facuy..
+    username: consorcio
+    password: consorcio
